@@ -144,3 +144,10 @@ tests/*
 .idea/*
 
 tiktok_uploader\tiktok-signature\command.txt
+
+
+VideoInputDirPath/*
+VideosDirPath/*
+MusicDirPath/*
+videos/*
+CookiesDir/*
