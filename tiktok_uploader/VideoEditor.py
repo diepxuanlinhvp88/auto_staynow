@@ -87,7 +87,7 @@ class VideoEditor:
             print(f"Error adding effects: {str(e)}")
             return False
 
-    def add_text(self, text, color="white", fontsize=70):
+    def add_text(self, text, color="white", fontsize=35):
         """Add text to video at specified position (centered horizontally, 3/4 from top)"""
         try:
             print(f"Adding text: '{text}' with color {color} and size {fontsize}")
@@ -109,7 +109,7 @@ class VideoEditor:
                     font="font/Be_Vietnam_Pro/BeVietnamPro-Bold.ttf"  # Width of video, auto-height
                 )
                 .with_duration(self.video.duration)
-                .with_position(("center", h * 0.25))  # Center horizontally, 1/4 from top
+                .with_position(("center", h * 0.2))  # Center horizontally, 1/4 from top
             )
             
             print("Text overlay created successfully")
@@ -197,11 +197,4 @@ class VideoEditor:
             print(f"Error adding overlay: {str(e)}")
             return self.video 
 
-if __name__ == "__main__":
-    video_input_path = "VideoInputDirPath/6750174608999.mp4"
-    video_editor = VideoEditor(video_input_path)
-    
-    video_editor.change_speed(1.2)
-    video_editor.add_audio("MusicDirPath/music.mp3")
-    video_editor.add_text("Ngõ 59 văn tiến dũng")
-    video_editor.save("videos/post-processed.mp4")
+

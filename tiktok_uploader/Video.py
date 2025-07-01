@@ -3,6 +3,7 @@ from moviepy import VideoFileClip, AudioFileClip, TextClip, CompositeVideoClip, 
 from pytube import YouTube
 import time
 import os
+import requests
 
 class Video:
     def __init__(self, source_ref, video_text):
@@ -154,6 +155,5 @@ class Video:
             return video_dir
         return self.source_ref
     
-    def downloadFromStayNow(self):
-        pass
+    
 
