@@ -73,7 +73,20 @@ def downAllVideo(ListRoom, total):
     
     while count < total and index < total_rooms:
         print(f"Đang xử lý phòng {index + 1}/{total_rooms}")
-        result = downloadVideo(ListRoom[index].get("images"), ListRoom[index].get("address"), ListRoom[index].get("price"), ListRoom[index].get("id"))
+        room = ListRoom[index]
+        room_items = room.get("room_items", [])
+
+        # 👉 Lấy images của room_item đầu tiên (nếu có)
+        if room_items:
+            list_url = room_items[0].get("images", [])
+        else:
+            list_url = []
+
+        address = room.get("address")
+        price = room.get("price")
+        room_id = room.get("id")
+        result = downloadVideo(list_url, address, price, room_id)
+        
         
         if result is True:
             count += 1
@@ -96,8 +109,8 @@ def format_price(price_str):
         millions = price // 1000000
         remainder = (price % 1000000) // 100000
         if remainder > 0:
-            return f"{millions}m{remainder}"
-        return f"{millions}m"
+            return f"{millions}tr{remainder}"
+        return f"{millions}tr"
     except ValueError:
         return price_str
 
